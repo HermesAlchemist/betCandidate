@@ -1,28 +1,58 @@
-REMIX DEFAULT WORKSPACE
+BetCandidate Smart Contract
+This repository contains the BetCandidate smart contract, which allows users to place bets on candidates in a dispute. The contract facilitates betting, determines a winner, and allows users to claim their rewards based on their contributions. The contract also enables the owner to collect a commission from the total prize pool after the dispute is finalized.
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+Features
+Betting on Candidates:
 
-This workspace contains 3 directories:
+Users can bet on one of two candidates by specifying their candidate and the amount they wish to bet.
+Bets are recorded in the allBets mapping, which stores details like bet amount, candidate choice, timestamp, and whether the reward has been claimed.
+Dispute Management:
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+The contract supports two candidates in a dispute, with their respective names and images.
+The owner can finalize the dispute by declaring a winner, after which the prize distribution process starts.
+Prize Pool and Commission:
 
-SCRIPTS
+A commission of 10% is collected from the total prize pool by the contract owner.
+The remaining prize pool is distributed among users who bet on the winning candidate based on their proportional contribution.
+Claiming Rewards:
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+After the dispute ends, users who bet on the winning candidate can claim their prize, which is calculated based on the total amount bet and the user’s contribution.
+Commission Withdrawal:
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+The contract owner can withdraw the commission only after the dispute has ended and the winner is declared.
+Contract Details
+Owner: The contract deployer is assigned as the owner and is responsible for declaring the winner and withdrawing the commission.
+Bet Struct:
+Bet holds individual betting information: the amount bet, candidate number, timestamp, and claimed status.
+Dispute Struct:
+Dispute contains the names and images of the two candidates, the total amount bet on each candidate, and the final winner.
+Fee and Prize Calculation:
+The contract applies a 10% fee (represented as fee = 1000 with 4 decimal scaling) to the total prize pool before distributing the rewards.
+Functions
+bet(uint candidate)
+Allows users to place their bet on a candidate (either 1 or 2). The bet is only accepted if it meets the following criteria:
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+The bet is placed before the deadline (prazoDaAposta).
+The candidate is valid (either 1 or 2).
+The dispute has not yet been finalized.
+finish(uint winner)
+Allows the contract owner to finalize the dispute and declare a winner. This function calculates the gross prize pool, deducts the commission, and sets the net prize for distribution.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+claim()
+Allows users who placed a bet on the winning candidate to claim their reward. The reward is calculated based on the total amount bet on the winning candidate and the user’s contribution.
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+sacarComissao()
+Allows the contract owner to withdraw the commission from the total prize pool. The commission can only be withdrawn once, and only after the dispute is finalized.
+
+Requirements
+Solidity version: ^0.8.26
+The contract is licensed under the MIT License.
+Deployment
+Deploy the contract with the default constructor. The dispute is initialized with pre-set candidates.
+Users can place bets until the betting deadline (prazoDaAposta).
+The owner can declare the winner after the deadline.
+Users can claim their rewards, and the owner can withdraw the commission.
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Feel free to reach out if you have any questions or need further clarification!
