@@ -66,32 +66,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "commission",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "commissionWithdrawn",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "dispute",
 				"outputs": [
 					{
@@ -158,26 +132,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "prazoDaAposta",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "sacarComissao",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -208,11 +162,11 @@
 	},
 	"sources": {
 		"contracts/BetCandidate.sol": {
-			"keccak256": "0xfa24b759efec341a3c8aa93877028579acf3e21a64ae3e86ec9ae58fff788187",
+			"keccak256": "0xe311bf046d1e577a6b6c62f09d101cbf50cf84ca044668890b21a06b2f680c6f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://595e5224c6f54244af22c6c136cf0b084750603e2deabb5b2a17b4bec05bedf0",
-				"dweb:/ipfs/QmRHnVLn18wZGUvvs6dhNHfEPTL4hvwoNYXR7NCB7nf3sJ"
+				"bzz-raw://bfca1ca32a6469e9bb531a0304b4020d9fc5165a7ad27d10d9c22bcfb59afc9f",
+				"dweb:/ipfs/QmRmVub9TPzHv2PCQfFZCGBM1CBNSaYfVH843Qy74J9swg"
 			]
 		}
 	},
