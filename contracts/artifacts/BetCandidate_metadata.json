@@ -6,7 +6,18 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bettingDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_finishDate",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -36,9 +47,9 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "bool",
 						"name": "claimed",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -59,9 +70,48 @@
 			},
 			{
 				"inputs": [],
+				"name": "bettingDeadline",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "claim",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "commission",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "commissionWithdrawn",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -108,6 +158,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "fee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -122,6 +185,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "finishDate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "netPrize",
 				"outputs": [
 					{
@@ -131,6 +207,80 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBettors1",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBettors2",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_candidate1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_candidate2",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_image1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_image2",
+						"type": "string"
+					}
+				],
+				"name": "updateCandidateInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawCommission",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -155,18 +305,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"contracts/BetCandidate.sol": {
-			"keccak256": "0xe311bf046d1e577a6b6c62f09d101cbf50cf84ca044668890b21a06b2f680c6f",
+			"keccak256": "0x50149ca5a6d8378fa90e5f76b966a32d03565588b3b5742bb0b4b569c1cef000",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bfca1ca32a6469e9bb531a0304b4020d9fc5165a7ad27d10d9c22bcfb59afc9f",
-				"dweb:/ipfs/QmRmVub9TPzHv2PCQfFZCGBM1CBNSaYfVH843Qy74J9swg"
+				"bzz-raw://53a8bc80d92eb2ab737bfae64dacd57c6cbca8c61bf997777124ddb6be6fdd96",
+				"dweb:/ipfs/QmRMK8fLjPDJSwi5wjNtqkjnUr6w3rpYf88jsdWjTYNMLC"
 			]
 		}
 	},
